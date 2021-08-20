@@ -1,0 +1,12 @@
+{
+  "_template": "https://github.com/jonzarecki/cookiecutter-test",
+  "author": "Claudio Jolowicz",
+  "development_status": "Development Status :: 1 - Planning",
+  "email": "mail@claudiojolowicz.com",
+  "friendly_name": "Cookiecutter Test Instance",
+  "github_user": "cjolowicz",
+  "license": "MIT",
+  "package_name": "cookiecutter_test_instance",
+  "project_name": "cookiecutter-test-instance",
+  "version": "0.0.0"
+}

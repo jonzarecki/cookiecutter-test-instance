@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Build the Docker image
+      uses: actions/checkout@v2
+      run: docker build . --file Dockerfile --tag cookiecutter-test-instance:$(date +%s)
+
+    - name: Upgrade pip
+      run: |
+        pip install --constraint=.github/workflows/constraints.txt pip
+        pip --version
