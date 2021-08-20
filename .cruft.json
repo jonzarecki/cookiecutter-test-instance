@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/jonzarecki/cookiecutter-test",
-  "commit": "b0275bb288a7f78fc9022b2a720db993c667c092",
+  "commit": "32c1fdf9275cc7a136ce86161e24a686833295e5",
   "context": {
     "cookiecutter": {
       "project_name": "instance",
