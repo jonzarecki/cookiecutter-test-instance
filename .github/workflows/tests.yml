@@ -96,6 +96,7 @@ jobs:
         uses: actions/download-artifact@v2.0.10
         with:
           name: coverage-data
+          path: .cache
 
       - name: Combine coverage data and display human readable report
         run: |
