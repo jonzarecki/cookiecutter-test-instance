@@ -7,8 +7,7 @@ from textwrap import dedent
 import nox
 
 try:
-    from nox_poetry import Session
-    from nox_poetry import session
+    from nox_poetry import Session, session
 except ImportError:
     message = f"""\
     Nox failed to import the 'nox-poetry' package.
@@ -43,8 +42,10 @@ def safety(sess: Session) -> None:
 def tests(sess: Session) -> None:
     """Run the test suite."""
     sess.install(".")
+    # sess.install("coverage[toml]", "pytest", "pytest-cov", "pytest-xdist", "pygments")  # noqa
     sess.install("coverage[toml]", "pytest", "pygments")
     try:
+        # sess.run("pytest", "-n" "3" "--rootdir=." "--cov=."  --cov-fail-under=80")  # noqa
         sess.run("coverage", "run", "--parallel", "-m", "pytest", *sess.posargs)
     finally:
         if sess.interactive:
@@ -58,7 +59,7 @@ def coverage(sess: Session) -> None:
 
     sess.install("coverage[toml]")
 
-    if not sess.posargs and any(Path().glob(".coverage.*")):
+    if not sess.posargs and any(Path().glob(".cache/.coverage.*")):
         sess.run("coverage", "combine")
 
     sess.run("coverage", *args)

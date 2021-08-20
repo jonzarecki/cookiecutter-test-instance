@@ -2,22 +2,22 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Build the Docker image
-      uses: actions/checkout@v2
-      run: docker build . --file Dockerfile --tag instance:$(date +%s)
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Upgrade pip
-      run: |
-        pip install --constraint=.github/workflows/constraints.txt pip
-        pip --version
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag instance:$(date +%s)
+
+      - name: Upgrade pip
+        run: |
+          pip install --constraint=.github/workflows/constraints.txt pip
+          pip --version

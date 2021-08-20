@@ -58,6 +58,7 @@ instance = "instance.main:main"
 
 
 [tool.coverage.run]
+source = ["instance"]
 omit = [
   "setup.py",
   "*/notebooks/*",
