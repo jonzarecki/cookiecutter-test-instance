@@ -128,14 +128,14 @@ repos:
       - id: jupytext
         files: '^notebooks/(notes|nb_python)/(.*\.py|.*\.ipynb)$'
         exclude: "^.*__init__.py"
-        args: [
+        #        args: [ --update-metadata, '{"jupytext":{"notebook_metadata_filter":"all", "cell_metadata_filter":"-all"}, "accelerator":"GPU"}', --set-formats, 'notebooks//nb_python//py:percent,notebooks//notes//ipynb,', --pipe, black, --pipe, 'isort - --treat-comment-as-code "# %%"', --pipe-fmt, 'py:percent', --sync]
+        args:
+          [
             --pre-commit-mode,
             --update-metadata,
-            '{"jupytext":{"notebook_metadata_filter":"all", "cell_metadata_filter":"-all"}, "accelerator":"GPU"}',
-            \
+            '{"jupytext":{"notebook_metadata_filter":"-all", "cell_metadata_filter":"-all"}, "accelerator":"GPU"}',
             --set-formats,
             "notebooks//nb_python//py:percent,notebooks//notes//ipynb,",
-            \
             --pipe,
             black,
             --pipe,
