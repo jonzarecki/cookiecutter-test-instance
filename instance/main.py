@@ -1,5 +1,5 @@
 def main() -> None:
-    """Cookiecutter Test Instance."""
+    """Instance."""
     print("hello world")
 
 

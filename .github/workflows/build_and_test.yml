@@ -15,7 +15,7 @@ jobs:
     steps:
     - name: Build the Docker image
       uses: actions/checkout@v2
-      run: docker build . --file Dockerfile --tag cookiecutter-test-instance:$(date +%s)
+      run: docker build . --file Dockerfile --tag instance:$(date +%s)
 
     - name: Upgrade pip
       run: |

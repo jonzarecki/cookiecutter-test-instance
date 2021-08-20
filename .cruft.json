@@ -1,12 +1,11 @@
 {
   "template": "https://github.com/jonzarecki/cookiecutter-test",
-  "commit": "ce43907d177835fabefa14e4a3c08a7e216aedfc",
-  "checkout": null,
+  "commit": "39fc6c605c1fc7683f2887b517be18f183133761",
   "context": {
     "cookiecutter": {
-      "project_name": "cookiecutter-test-instance",
-      "package_name": "cookiecutter_test_instance",
-      "friendly_name": "Cookiecutter Test Instance",
+      "project_name": "instance",
+      "package_name": "instance",
+      "friendly_name": "Instance",
       "author": "Claudio Jolowicz",
       "email": "mail@claudiojolowicz.com",
       "github_user": "cjolowicz",
@@ -16,5 +15,6 @@
       "_template": "https://github.com/jonzarecki/cookiecutter-test"
     }
   },
-  "directory": null
+  "directory": "",
+  "checkout": null
 }

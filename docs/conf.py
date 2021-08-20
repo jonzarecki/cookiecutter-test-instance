@@ -2,7 +2,7 @@
 from datetime import datetime
 
 
-project = "Cookiecutter Test Instance"
+project = "Instance"
 author = "Claudio Jolowicz"
 copyright = f"{datetime.now().year}, {author}"
 extensions = [

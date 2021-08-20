@@ -13,4 +13,4 @@
    contributing
    Code of Conduct <codeofconduct>
    License <license>
-   Changelog <https://github.com/cjolowicz/cookiecutter-test-instance/releases>
+   Changelog <https://github.com/cjolowicz/instance/releases>
