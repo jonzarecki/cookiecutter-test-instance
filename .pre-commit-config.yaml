@@ -1,5 +1,5 @@
 default_stages: [commit, manual]
-#Install using: pre-commit install --install-hooks -t pre-commit -t commit-msg
+#Install using: pre-commit install --install-hooks -t pre-commit -t commit-msg -r post-commit
 repos:
   - repo: https://github.com/jorisroovers/gitlint
     rev: v0.15.1
@@ -172,3 +172,9 @@ repos:
     rev: "v2.3.2"
     hooks:
       - id: prettier
+
+  - repo: https://github.com/jonzarecki/cruft
+    rev: 2.9.0-alpha.3
+    hooks:
+      - id: cruft
+        stages: [post-commit]
