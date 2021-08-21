@@ -22,11 +22,11 @@ RUN curl -o ~/miniconda.sh -O https://repo.anaconda.com/miniconda/Miniconda3-lat
 
 RUN mkdir /code
 WORKDIR /code
-COPY environment.yml /code/environment.yml
+COPY environment.yml /tmp/environment.yml
 ENV PATH /opt/conda/bin:$PATH
 ENV CONDA_AUTO_UPDATE_CONDA=false
 
-RUN conda env create -f /opt/orig_environment.yml && conda clean -ya
+RUN conda env create -f /tmp/environment.yml && conda clean -ya
 
 # Init conda environment
 ENV CONDA_DEFAULT_ENV=instance
