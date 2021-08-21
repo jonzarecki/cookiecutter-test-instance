@@ -42,10 +42,8 @@ def safety(sess: Session) -> None:
 def tests(sess: Session) -> None:
     """Run the test suite."""
     sess.install(".")
-    # sess.install("coverage[toml]", "pytest", "pytest-cov", "pytest-xdist", "pygments")  # noqa
     sess.install("coverage[toml]", "pytest", "pygments")
     try:
-        # sess.run("pytest", "-n" "3" "--rootdir=." "--cov=."  --cov-fail-under=80")  # noqa
         sess.run("coverage", "run", "--parallel", "-m", "pytest", *sess.posargs)
     finally:
         if sess.interactive:

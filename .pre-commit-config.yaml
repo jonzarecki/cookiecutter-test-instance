@@ -78,7 +78,7 @@ repos:
             "--min-confidence",
             "100",
             "--exclude",
-            "**/.ipynb_checkpoints/,notebooks/,tests",
+            "**/.ipynb_checkpoints/,notebooks/,tests/",
             ".",
           ]
 

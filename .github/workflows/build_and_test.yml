@@ -1,10 +1,8 @@
-name: Docker Image CI
+name: Docker Image CI - build and test
 
 on:
   push:
-    branches: [main]
   pull_request:
-    branches: [main]
 
 jobs:
   build:
@@ -17,7 +15,11 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag instance:$(date +%s)
 
-      - name: Upgrade pip
+  test:
+    runs-on: ubuntu-latest
+    container: instance:$(date +%s)
+
+    steps:
+      - name: Run Tests
         run: |
-          pip install --constraint=.github/workflows/constraints.txt pip
-          pip --version
+          nox --force-color --session=tests

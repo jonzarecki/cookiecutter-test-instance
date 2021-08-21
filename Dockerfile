@@ -1,4 +1,11 @@
-FROM debian:jessie-slim
+FROM continuumio/anaconda3:2021.05
 
-# add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
-RUN groupadd -r redis && useradd -r -g redis redis
+RUN mkdir /code
+
+COPY .github/workflows/constraints.txt /tmp
+RUN pip install --constraint=/tmp/constraints.txt pip
+RUN pip install --constraint=/tmp/constraints.txt poetry
+RUN pip install --constraint=.github/workflows/constraints.txt nox nox-poetry
+
+
+
