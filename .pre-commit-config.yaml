@@ -1,5 +1,6 @@
 default_stages: [commit, manual]
-#Install using: pre-commit install --install-hooks -t pre-commit -t commit-msg -t post-commit -t push
+#Install using:
+# pre-commit install --install-hooks -t pre-commit -t commit-msg -t post-commit -t pre-push
 repos:
   - repo: https://github.com/jorisroovers/gitlint
     rev: v0.15.1
