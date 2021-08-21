@@ -15,12 +15,6 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag instance:ci
 
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    container: instance:ci
-
-    steps:
       - name: Run Tests
         run: |
-          nox --force-color --session=tests
+          docker run instance:ci nox --force-color --session=tests
