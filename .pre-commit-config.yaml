@@ -73,15 +73,6 @@ repos:
         entry: vulture
         description: Find unused Python code.
         types: [python]
-        args:
-          [
-            --sort-by-size,
-            "--min-confidence",
-            "100",
-            "--exclude",
-            "**/.ipynb_checkpoints/,notebooks/,tests/",
-            ".",
-          ]
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: "v0.901"

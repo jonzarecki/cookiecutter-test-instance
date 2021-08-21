@@ -58,13 +58,14 @@ instance = "instance.main:main"
 
 
 [tool.coverage.run]
-# source = ["instance"]
+source = ["instance", "common"]
 omit = [
   "setup.py",
+  "config.py",
+  "constants.py",
   "*/notebooks/*",
+  "*/tests/*",
   "*/main.py",
-  "common/*",
-  "module/*",
   "*/__init__.py"]
 data_file = ".cache/.coverage"
 
@@ -97,7 +98,7 @@ minversion = "6.0"
 addopts = "-ra -q"
 python_files = [
   "test_*.py",
-  "example_*.py"
+#   "example_*.py"
 ]
 
 
@@ -128,6 +129,15 @@ no_implicit_reexport = true
 #[[tool.mypy.overrides]]  # example of module disable for mypy
 #module = "google.oauth2.*"
 #ignore_missing_imports = true
+
+[tool.vulture]
+# ignore_decorators = ["@app.route", "@require_*"]
+exclude = ["notebooks/", "**/tests/"]
+make_whitelist = true
+min_confidence = 80
+paths = ["instance", "common"]
+sort_by_size = true
+verbose = true
 
 
 [build-system]

@@ -46,8 +46,7 @@ def tests(sess: Session) -> None:
     try:
         sess.run("coverage", "run", "--parallel", "-m", "pytest", *sess.posargs)
     finally:
-        if sess.interactive:
-            sess.notify("coverage", posargs=[])
+        sess.notify("coverage", posargs=[])
 
 
 @session
