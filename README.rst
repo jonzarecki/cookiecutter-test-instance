@@ -20,8 +20,8 @@ Instance
    :target: https://opensource.org/licenses/MIT
    :alt: License
 .. |Read the Docs| image:: https://img.shields.io/readthedocs/instance/latest.svg?label=Read%20the%20Docs
-   :target: https://instance.readthedocs.io/
-   :alt: Read the documentation at https://instance.readthedocs.io/
+   :target: https://cookiecutter-test-instance.readthedocs.io/
+   :alt: Read the documentation at https://cookiecutter-test-instance.readthedocs.io/
 .. |Tests| image:: https://github.com/jonzarecki/cookiecutter-test-instance/workflows/Tests/badge.svg
    :target: https://github.com/jonzarecki/cookiecutter-test-instance/actions?workflow=Tests
    :alt: Tests
