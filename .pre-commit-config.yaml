@@ -178,4 +178,4 @@ repos:
     hooks:
       - id: cruft
         always_run: true
-        stages: [post-commit, push]
+        stages: [push]
