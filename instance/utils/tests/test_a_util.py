@@ -1,7 +1,7 @@
 # pylint: disable=redefined-outer-name
 import pytest
 
-from instance.utils.example_util import _util_function
+from instance.utils.a_util import _util_function
 
 
 @pytest.fixture
