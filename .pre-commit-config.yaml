@@ -177,4 +177,5 @@ repos:
     rev: 2.9.0-alpha.3
     hooks:
       - id: cruft
+        always_run: true
         stages: [post-commit]

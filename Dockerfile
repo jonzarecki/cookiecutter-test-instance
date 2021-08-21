@@ -1,4 +1,5 @@
-FROM continuumio/anaconda3:2021.05
+FROM continuumio/anaconda3:2020-02
+# last version with python3.7 (i'm lazy to create an environment)
 
 RUN mkdir /code
 
