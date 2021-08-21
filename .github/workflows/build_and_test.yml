@@ -1,11 +1,11 @@
-name: Docker Image CI - build and test
+name: Build docker image and test on it
 
 on:
   push:
   pull_request:
 
 jobs:
-  build:
+  build_and_test:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,6 +15,6 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag instance:ci
 
-      - name: Run Tests
+      - name: Run tests
         run: |
-          docker run instance:ci nox --force-color --session=tests
+          docker run {cookiecutter.package_name}}:ci nox --force-color --session=tests
