@@ -57,8 +57,8 @@ def coverage(sess: Session) -> None:
     sess.install("coverage[toml]")
 
     if not sess.posargs and any(Path().glob(".cache/.coverage.*")):
-        sess.run("coverage", "combine")
-
+        # keep .coverage.* files if not interactive (i.e. CI)
+        sess.run(*(["coverage", "combine"] + ["--keep"] if not sess.interactive else []))
     sess.run("coverage", *args)
 
 

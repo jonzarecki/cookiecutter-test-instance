@@ -20,8 +20,9 @@ RUN curl -o ~/miniconda.sh -O https://repo.anaconda.com/miniconda/Miniconda3-lat
     ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh
 
-WORKDIR /home/root
-COPY environment.yaml /opt/orig_environment.yml
+RUN mkdir /code
+WORKDIR /code
+COPY environment.yml /code/environment.yml
 ENV PATH /opt/conda/bin:$PATH
 ENV CONDA_AUTO_UPDATE_CONDA=false
 
@@ -37,14 +38,12 @@ RUN /bin/bash -c "source activate $CONDA_DEFAULT_ENV"
 # jupytertheme config to dark mode - Optional, seems to mess up some UI elements in 8.8.20
 #RUN $CONDA_PREFIX/bin/jt -t onedork -fs 95 -altp -tfs 11 -nfs 115 -lineh 140 -cellw 1200 -T
 
-# source code
-RUN mkdir /code
-
 COPY .github/workflows/constraints.txt /tmp
 RUN $CONDA_PREFIX/bin/pip install --constraint=/tmp/constraints.txt pip
 RUN $CONDA_PREFIX/bin/pip install --constraint=/tmp/constraints.txt poetry
 RUN $CONDA_PREFIX/bin/pip install --constraint=/tmp/constraints.txt nox nox-poetry
 
+# copy source code
 COPY . /code
 WORKDIR /code
 
