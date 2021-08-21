@@ -13,11 +13,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag instance:$(date +%s)
+        run: docker build . --file Dockerfile --tag instance:ci
 
   test:
     runs-on: ubuntu-latest
-    container: instance:$(date +%s)
+    needs: test
+    container: instance:ci
 
     steps:
       - name: Run Tests
