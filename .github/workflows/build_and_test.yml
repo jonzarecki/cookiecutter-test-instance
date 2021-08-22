@@ -17,4 +17,4 @@ jobs:
 
       - name: Run tests
         run: |
-          docker run {cookiecutter.package_name}}:ci nox --force-color --session=tests
+          docker run instance:ci nox --force-color --session=tests
