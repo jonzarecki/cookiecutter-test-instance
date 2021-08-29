@@ -20,8 +20,6 @@ RUN curl -o ~/miniconda.sh -O https://repo.anaconda.com/miniconda/Miniconda3-lat
     ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh
 
-RUN mkdir /code
-WORKDIR /code
 COPY environment.yml /tmp/environment.yml
 ENV PATH /opt/conda/bin:$PATH
 ENV CONDA_AUTO_UPDATE_CONDA=false
