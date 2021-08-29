@@ -17,7 +17,7 @@ jobs:
 
       - name: Run Nox on all sessions
         run: |
-          docker run instance:ci -v `pwd`:/code nox --force-color
+          docker run -v `pwd`:/code  instance:ci nox --force-color
 
       - name: Upload coverage data
         uses: "actions/upload-artifact@v2.2.4"
