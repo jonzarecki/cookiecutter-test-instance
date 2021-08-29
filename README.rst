@@ -42,23 +42,6 @@ Features
 * TODO
 
 
-
-Installation
-------------
-
-You can install *Instance* via pip_ from PyPI_:
-
-.. code:: console
-
-   $ pip install instance
-
-
-Usage
------
-
-Please see the `Command-line Reference <Usage_>`_ for details.
-
-
 Issues
 ------
 
@@ -72,11 +55,6 @@ Credits
 This project was generated from `@jonzarecki`_'s `cookiecutter-test`_ template.
 
 .. _@jonzarecki: https://github.com/jonzarecki
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _MIT license: https://opensource.org/licenses/MIT
-.. _PyPI: https://pypi.org/
 .. _cookiecutter-test: https://github.com/jonzarecki/cookiecutter-test
 .. _file an issue: https://github.com/cjolowicz/instance/issues
-.. _pip: https://pip.pypa.io/
-.. github-only
-.. _Usage: https://instance.readthedocs.io/en/latest/usage.html

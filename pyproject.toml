@@ -18,32 +18,6 @@ classifiers = [
 [tool.poetry.urls]
 Changelog = "https://github.com/cjolowicz/instance/releases"
 
-[tool.poetry.dependencies]
-python = "^3.7.1"
-
-[tool.poetry.dev-dependencies]
-pytest = "^6.2.4"
-coverage = {extras = ["toml"], version = "^5.4"}
-safety = "^1.10.3"
-mypy = "^0.910"
-typeguard = "^2.12.1"
-xdoctest = {extras = ["colors"], version = "^0.15.5"}
-sphinx = "^4.1.2"
-sphinx-autobuild = "^2021.3.14"
-sphinx-rtd-theme = "^0.5.2"
-sphinx-click = "^3.0.1"
-Pygments = "^2.9.0"
-
-[tool.poetry.scripts]
-instance = "instance.main:main"
-
-#[tool.coverage.paths]
-#source = ["src", "*/site-packages"]
-
-#[tool.coverage.run]
-#branch = true
-#source = ["instance"]
-
 
 [tool.coverage.run]
 source = ["instance", "common"]

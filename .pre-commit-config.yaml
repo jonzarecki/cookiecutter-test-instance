@@ -12,11 +12,16 @@ repos:
     rev: v2.1.0
     hooks:
       - id: codespell
+        exclude: ^notebooks/notes.*$
+        args:
+          - --ignore-words-list=word1,word2
+          - --skip="*.ipynb"
 
   - repo: https://github.com/pre-commit/mirrors-pylint
     rev: "v2.7.4"
     hooks:
       - id: pylint
+        exclude: ^notebooks/nb_python.*$
         types: [python]
         args:
           [
@@ -31,22 +36,23 @@ repos:
     hooks:
       - id: isort
         args: ["--profile", "black"]
-        exclude: docs/
+        exclude: ^notebooks/nb_python.*$
 
   - repo: https://github.com/ambv/black
     rev: 21.5b2
     hooks:
       - id: black
+        exclude: ^notebooks/nb_python.*$
         args: ["--line-length", "120"]
 
   - repo: https://github.com/pycqa/flake8
     rev: 3.9.2
     hooks:
       - id: flake8
-        exclude: docs/
+        exclude: ^notebooks/nb_python.*$
         additional_dependencies: # https://dev.to/mmphego/why-you-need-to-stop-using-git-hooks-41
           [
-            flake8-return,
+            flake8-return, # TODO: problems with non ASCII characters
             flake8-simplify,
             flake8-2020, # flake8 plugin which checks for misuse of `sys.version` or `sys.version_info`
             flake8-absolute-import, # uses a simple check of the AST for each from x import y statement to flag relative imports.
@@ -70,6 +76,7 @@ repos:
         name: vulture
         language: python
         entry: vulture
+        exclude: ^notebooks/nb_python.*$
         description: Find unused Python code.
         types: [python]
 
@@ -77,8 +84,17 @@ repos:
     rev: "v0.901"
     hooks:
       - id: mypy
+        exclude: ^notebooks/nb_python.*$
         additional_dependencies:
           - attrs
+
+  - repo: https://github.com/myint/docformatter
+    rev: v1.3.1
+    hooks:
+      - id: docformatter
+        exclude: ^notebooks/nb_python.*$
+        args:
+          [--in-place, --wrap-summaries, "0", --wrap-descriptions, "0", --blank]
 
   - repo: https://github.com/pycqa/pydocstyle
     rev: 6.1.1
@@ -90,12 +106,14 @@ repos:
     rev: v1.8.0
     hooks:
       - id: darglint
+        exclude: ^notebooks/nb_python.*$
         args: ["-v", "2"]
 
   - repo: https://github.com/asottile/pyupgrade
     rev: v2.19.4
     hooks:
       - id: pyupgrade
+        exclude: ^notebooks/nb_python.*$
         args: [--py3-plus, --py36-plus]
 
   - repo: https://github.com/seddonym/import-linter
@@ -107,6 +125,7 @@ repos:
     rev: v0.3.0
     hooks:
       - id: absolufy-imports
+        exclude: ^notebooks/nb_python.*$
 
   - repo: https://github.com/kynan/nbstripout
     rev: 0.3.9
@@ -145,6 +164,13 @@ repos:
     rev: v0.7.2.1
     hooks:
       - id: shellcheck
+
+  - repo: https://github.com/PyCQA/doc8
+    rev: 0.8.1
+    hooks:
+      - id: doc8
+        exclude: ^notebooks/nb_python.*$
+        args: ["--max-line-length=120", "docs"]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
