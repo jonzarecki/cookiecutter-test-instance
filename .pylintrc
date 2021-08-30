@@ -152,6 +152,7 @@ disable=abstract-method,
         missing-raises-doc,
         protected-access,
         logging-fstring-interpolation,
+        redefined-builtin,
 
 [REPORTS]
 
