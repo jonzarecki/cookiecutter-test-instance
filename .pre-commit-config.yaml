@@ -13,9 +13,7 @@ repos:
     hooks:
       - id: codespell
         exclude: ^notebooks/notes.*$
-        args:
-          - --ignore-words-list=word1,word2
-          - --skip="*.ipynb"
+        args: [--ignore-words-list=word1, word2]
 
   - repo: https://github.com/pre-commit/mirrors-pylint
     rev: "v2.7.4"
@@ -35,7 +33,7 @@ repos:
     rev: 5.8.0
     hooks:
       - id: isort
-        args: ["--profile", "black"]
+        args: ["--profile=black"]
         exclude: ^notebooks/nb_python.*$
 
   - repo: https://github.com/ambv/black
@@ -43,7 +41,7 @@ repos:
     hooks:
       - id: black
         exclude: ^notebooks/nb_python.*$
-        args: ["--line-length", "120"]
+        args: ["--line-length=120"]
 
   - repo: https://github.com/pycqa/flake8
     rev: 3.9.2
@@ -52,7 +50,7 @@ repos:
         exclude: ^notebooks/nb_python.*$
         additional_dependencies: # https://dev.to/mmphego/why-you-need-to-stop-using-git-hooks-41
           [
-            flake8-return, # TODO: problems with non ASCII characters
+            flake8-return,
             flake8-simplify,
             flake8-2020, # flake8 plugin which checks for misuse of `sys.version` or `sys.version_info`
             flake8-absolute-import, # uses a simple check of the AST for each from x import y statement to flag relative imports.
@@ -93,8 +91,7 @@ repos:
     hooks:
       - id: docformatter
         exclude: ^notebooks/nb_python.*$
-        args:
-          [--in-place, --wrap-summaries, "0", --wrap-descriptions, "0", --blank]
+        args: [-i, "--wrap-summaries=0", "--wrap-descriptions=0", --blank]
 
   - repo: https://github.com/pycqa/pydocstyle
     rev: 6.1.1
@@ -138,7 +135,6 @@ repos:
       - id: jupytext
         files: '^notebooks/(notes|nb_python)/(.*\.py|.*\.ipynb)$'
         exclude: "^.*__init__.py"
-        #        args: [ --update-metadata, '{"jupytext":{"notebook_metadata_filter":"all", "cell_metadata_filter":"-all"}, "accelerator":"GPU"}', --set-formats, 'notebooks//nb_python//py:percent,notebooks//notes//ipynb,', --pipe, black, --pipe, 'isort - --treat-comment-as-code "# %%"', --pipe-fmt, 'py:percent', --sync]
         args:
           [
             --pre-commit-mode,
@@ -146,8 +142,6 @@ repos:
             '{"jupytext":{"notebook_metadata_filter":"-all", "cell_metadata_filter":"-all"}, "accelerator":"GPU"}',
             --set-formats,
             "notebooks//nb_python//py:percent,notebooks//notes//ipynb,",
-            --pipe,
-            black,
             --pipe,
             'isort - --treat-comment-as-code "# %%"',
             --pipe-fmt,
@@ -157,7 +151,6 @@ repos:
         #        pass_filenames: false
         additional_dependencies:
           - "nbformat<=5.0.8"
-          - black
           - isort
 
   - repo: https://github.com/shellcheck-py/shellcheck-py

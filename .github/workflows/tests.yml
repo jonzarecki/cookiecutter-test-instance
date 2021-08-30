@@ -1,4 +1,4 @@
-name: Tests
+name: Run Tests (and nox session) and upload results
 
 on:
   - push

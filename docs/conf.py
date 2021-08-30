@@ -3,7 +3,7 @@ from datetime import datetime
 
 project = "Instance"
 author = "Claudio Jolowicz"
-copyright = f"{datetime.now().year}, {author}"  # pylint: disable=redefined-builtin  # noqa
+copyright = f"{datetime.now().year}, {author}"  # noqa
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
