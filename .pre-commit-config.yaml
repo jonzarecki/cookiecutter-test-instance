@@ -19,7 +19,7 @@ repos:
     rev: "v2.7.4"
     hooks:
       - id: pylint
-        exclude: ^notebooks/nb_python.*$
+        exclude: ^notebooks.*$
         types: [python]
         args:
           [
@@ -34,20 +34,20 @@ repos:
     hooks:
       - id: isort
         args: ["--profile=black"]
-        exclude: ^notebooks/nb_python.*$
+        exclude: ^notebooks.*$
 
   - repo: https://github.com/ambv/black
     rev: 21.5b2
     hooks:
       - id: black
-        exclude: ^notebooks/nb_python.*$
+        exclude: ^notebooks.*$
         args: ["--line-length=120"]
 
   - repo: https://github.com/pycqa/flake8
     rev: 3.9.2
     hooks:
       - id: flake8
-        exclude: ^notebooks/nb_python.*$
+        exclude: ^notebooks.*$
         additional_dependencies: # https://dev.to/mmphego/why-you-need-to-stop-using-git-hooks-41
           [
             # flake8-return, # has problems with non ASCII characters
@@ -74,7 +74,7 @@ repos:
         name: vulture
         language: python
         entry: vulture
-        exclude: ^notebooks/nb_python.*$
+        exclude: ^notebooks.*$
         description: Find unused Python code.
         types: [python]
 
@@ -82,7 +82,7 @@ repos:
     rev: "v0.901"
     hooks:
       - id: mypy
-        exclude: ^notebooks/nb_python.*$
+        exclude: ^notebooks.*$
         additional_dependencies:
           - attrs
 
@@ -90,39 +90,40 @@ repos:
     rev: v1.3.1
     hooks:
       - id: docformatter
-        exclude: ^notebooks/nb_python.*$
+        exclude: ^notebooks.*$
         args: [-i, "--wrap-summaries=0", "--wrap-descriptions=0", --blank]
 
   - repo: https://github.com/pycqa/pydocstyle
     rev: 6.1.1
     hooks:
       - id: pydocstyle
-        exclude: ^.*(__init__.py|test.*)
+        exclude: ^.*(notebooks.*|__init__.py|test.*)$
 
   - repo: https://github.com/terrencepreilly/darglint
     rev: v1.8.0
     hooks:
       - id: darglint
-        exclude: ^notebooks/nb_python.*$
+        exclude: ^notebooks.*$
         args: ["-v", "2"]
 
   - repo: https://github.com/asottile/pyupgrade
     rev: v2.19.4
     hooks:
       - id: pyupgrade
-        exclude: ^notebooks/nb_python.*$
+        exclude: ^notebooks.*$
         args: [--py3-plus, --py36-plus]
 
   - repo: https://github.com/seddonym/import-linter
     rev: v1.2.1
     hooks:
       - id: import-linter
+        exclude: ^notebooks.*$
 
   - repo: https://github.com/MarcoGorelli/absolufy-imports
     rev: v0.3.0
     hooks:
       - id: absolufy-imports
-        exclude: ^notebooks/nb_python.*$
+        exclude: ^notebooks.*$
 
   - repo: https://github.com/kynan/nbstripout
     rev: 0.3.9
@@ -133,7 +134,7 @@ repos:
     rev: v1.11.3
     hooks:
       - id: jupytext
-        files: '^notebooks/(notes|nb_python)/(.*\.py|.*\.ipynb)$'
+        files: ^notebooks/.*(py|ipynb)$
         exclude: "^.*__init__.py"
         args:
           [
@@ -148,7 +149,6 @@ repos:
             "py:percent",
             --sync,
           ]
-        #        pass_filenames: false
         additional_dependencies:
           - "nbformat<=5.0.8"
           - isort
@@ -162,7 +162,7 @@ repos:
     rev: 0.8.1
     hooks:
       - id: doc8
-        exclude: ^notebooks/nb_python.*$
+        exclude: ^notebooks.*$
         args: ["--max-line-length=120", "docs"]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -182,6 +182,7 @@ repos:
     rev: "v2.3.2"
     hooks:
       - id: prettier
+        exclude: .cruft.json
 
   - repo: https://github.com/jonzarecki/cruft
     rev: 2.9.0-alpha.3
