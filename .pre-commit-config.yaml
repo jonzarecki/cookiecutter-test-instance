@@ -50,7 +50,7 @@ repos:
         exclude: ^notebooks/nb_python.*$
         additional_dependencies: # https://dev.to/mmphego/why-you-need-to-stop-using-git-hooks-41
           [
-            flake8-return,
+            # flake8-return, # has problems with non ASCII characters
             flake8-simplify,
             flake8-2020, # flake8 plugin which checks for misuse of `sys.version` or `sys.version_info`
             flake8-absolute-import, # uses a simple check of the AST for each from x import y statement to flag relative imports.
