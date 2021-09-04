@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/jonzarecki/cookiecutter-test",
-  "commit": "123574fd0642d4b938a221f38cb06d528a652e0f",
+  "commit": "fb729fa50f487b1bd9344e4236bd5421cd85fdb7",
   "context": {
     "cookiecutter": {
       "project_name": "instance",
@@ -12,6 +12,10 @@
       "version": "0.0.0",
       "license": "MIT",
       "development_status": "Development Status :: 1 - Planning",
+      "_copy_without_render": [
+        "*.html",
+        "**docs/source/_templates/**"
+      ],
       "_template": "https://github.com/jonzarecki/cookiecutter-test"
     }
   },

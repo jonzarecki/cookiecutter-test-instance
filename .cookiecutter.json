@@ -1,4 +1,5 @@
 {
+  "_copy_without_render": ["*.html", "**docs/source/_templates/**"],
   "_template": "https://github.com/jonzarecki/cookiecutter-test",
   "author": "Claudio Jolowicz",
   "development_status": "Development Status :: 1 - Planning",

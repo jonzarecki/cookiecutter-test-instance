@@ -1,7 +1,5 @@
-
-
-.. _Contributor Guide: contributing.html
-.. _Usage: usage.html
+Documentation for instance
+--------------------------
 
 .. toctree::
    :hidden:
@@ -9,4 +7,4 @@
 
    usage
    reference
-   Changelog <https://github.com/jonzarecki/cookiecutter-test-instance/releases>
+   Changelog <https://github.com/cjolowicz/instance/releases>

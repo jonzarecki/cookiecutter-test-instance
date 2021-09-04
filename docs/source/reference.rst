@@ -8,7 +8,7 @@ Reference
 
 instance
 --------
-Main Package
+instance package.
 
 .. autosummary::
    :toctree: _autosummary
@@ -19,8 +19,8 @@ Main Package
 
 
 common
-------------------------------------------------
-All non-project specific code
+------
+All non-project specific code.
 
 .. autosummary::
    :toctree: _autosummary
