@@ -162,8 +162,12 @@ repos:
     rev: 0.8.1
     hooks:
       - id: doc8
-        exclude: ^notebooks.*$
-        args: ["--max-line-length=120", "docs"]
+        args:
+          [
+            "--max-line-length=120",
+            "--ignore-path=docs/source/_**",
+            "docs/source",
+          ]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1

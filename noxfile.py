@@ -54,7 +54,7 @@ def xdoctest(sess: Session) -> None:
 @nox.session(name="docs-build", python=python_versions)
 def docs_build(sess: Session) -> None:
     """Build the documentation."""
-    args = sess.posargs or ["docs", "docs/_build"]
+    args = sess.posargs or ["docs/source", "docs/_build"]
     sess.install("sphinx", "sphinx-click", "sphinx-rtd-theme")
 
     build_dir = Path("docs", "_build")
@@ -67,7 +67,7 @@ def docs_build(sess: Session) -> None:
 @nox.session(python=python_versions)
 def docs(sess: Session) -> None:
     """Build and serve the documentation with live reloading on file changes."""
-    args = sess.posargs or ["--open-browser", "docs", "docs/_build"]
+    args = sess.posargs or ["--open-browser", "docs/source", "docs/_build"]
     sess.install("sphinx", "sphinx-autobuild", "sphinx-click", "sphinx-rtd-theme")
 
     build_dir = Path("docs", "_build")

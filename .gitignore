@@ -7,6 +7,7 @@
 /.pytype/
 /dist/
 /docs/_build/
+/docs/source/_autosummary/
 /src/*.egg-info/
 __pycache__/
 /.idea/

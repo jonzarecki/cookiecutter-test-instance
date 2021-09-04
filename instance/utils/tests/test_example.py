@@ -1,12 +1,12 @@
 # pylint: disable=redefined-outer-name
 import pytest
 
-from instance.utils.example_util import _util_function
+from instance.utils.example_util import util_function2
 
 
 @pytest.fixture
 def setup1() -> int:
-    return _util_function()
+    return util_function2()
 
 
 def test_something(setup1: int) -> None:
