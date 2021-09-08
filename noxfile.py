@@ -5,7 +5,7 @@ from pathlib import Path
 import nox
 from nox import Session
 
-package = "instance"
+package = "cookiecutter_test_instance"
 python_versions = ["3.7"]
 nox.needs_version = ">= 2021.6.6"
 nox.options.sessions = ("tests", "xdoctest", "docs-build", "pre-commit")
@@ -15,7 +15,6 @@ nox.options.sessions = ("tests", "xdoctest", "docs-build", "pre-commit")
 def pre_commit(sess: Session) -> None:
     """Run pre-commit on all files."""
     sess.install("pre-commit")
-
     sess.run(*"pre-commit install --install-hooks -t pre-commit -t commit-msg -t post-commit -t pre-push".split(" "))
     sess.run(*"pre-commit run --all-files".split(" "))
 

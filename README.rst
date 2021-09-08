@@ -1,5 +1,5 @@
-Instance
-========
+Cookiecutter Test Instance
+==========================
 
 |PyPI| |Status| |Python Version| |License|
 
@@ -7,26 +7,26 @@ Instance
 
 |pre-commit| |Black|
 
-.. |PyPI| image:: https://img.shields.io/pypi/v/instance.svg
-   :target: https://pypi.org/project/instance/
+.. |PyPI| image:: https://img.shields.io/pypi/v/cookiecutter-test-instance.svg
+   :target: https://pypi.org/project/cookiecutter-test-instance/
    :alt: PyPI
-.. |Status| image:: https://img.shields.io/pypi/status/instance.svg
-   :target: https://pypi.org/project/instance/
+.. |Status| image:: https://img.shields.io/pypi/status/cookiecutter-test-instance.svg
+   :target: https://pypi.org/project/cookiecutter-test-instance/
    :alt: Status
-.. |Python Version| image:: https://img.shields.io/pypi/pyversions/instance
-   :target: https://pypi.org/project/instance
+.. |Python Version| image:: https://img.shields.io/pypi/pyversions/cookiecutter-test-instance
+   :target: https://pypi.org/project/cookiecutter-test-instance
    :alt: Python Version
-.. |License| image:: https://img.shields.io/pypi/l/instance
+.. |License| image:: https://img.shields.io/pypi/l/cookiecutter-test-instance
    :target: https://opensource.org/licenses/MIT
    :alt: License
-.. |Read the Docs| image:: https://img.shields.io/readthedocs/instance/latest.svg?label=Read%20the%20Docs
+.. |Read the Docs| image:: https://img.shields.io/readthedocs/cookiecutter-test-instance/latest.svg?label=Read%20the%20Docs
    :target: https://cookiecutter-test-instance.readthedocs.io/
    :alt: Read the documentation at https://cookiecutter-test-instance.readthedocs.io/
-.. |Tests| image:: https://github.com/jonzarecki/cookiecutter-test-instance/workflows/Tests/badge.svg
-   :target: https://github.com/jonzarecki/cookiecutter-test-instance/actions?workflow=Tests
+.. |Tests| image:: https://github.com/cjolowicz/cookiecutter-test-instance/workflows/Tests/badge.svg
+   :target: https://github.com/cjolowicz/cookiecutter-test-instance/actions?workflow=Tests
    :alt: Tests
-.. |Codecov| image:: https://codecov.io/gh/jonzarecki/cookiecutter-test-instance/branch/main/graph/badge.svg
-   :target: https://codecov.io/gh/jonzarecki/cookiecutter-test-instance
+.. |Codecov| image:: https://codecov.io/gh/cjolowicz/cookiecutter-test-instance/branch/main/graph/badge.svg
+   :target: https://codecov.io/gh/cjolowicz/cookiecutter-test-instance
    :alt: Codecov
 .. |pre-commit| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
    :target: https://github.com/pre-commit/pre-commit
@@ -57,4 +57,4 @@ This project was generated from `@jonzarecki`_'s `cookiecutter-test`_ template.
 .. _@jonzarecki: https://github.com/jonzarecki
 .. _MIT license: https://opensource.org/licenses/MIT
 .. _cookiecutter-test: https://github.com/jonzarecki/cookiecutter-test
-.. _file an issue: https://github.com/cjolowicz/instance/issues
+.. _file an issue: https://github.com/cjolowicz/cookiecutter-test-instance/issues

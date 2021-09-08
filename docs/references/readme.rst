@@ -1,5 +1,5 @@
-===============================
-instance - References
-===============================
+=======================================
+cookiecutter-test-instance - References
+=======================================
 
 Papers, manuals, and all other explanatory materials.

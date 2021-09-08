@@ -6,7 +6,7 @@
 # %autoreload 2
 import sys
 
-sys.path.append("../../")  # go to root dir
+sys.path.append("../../") # go to root dir
 
 # %%
 a = 1

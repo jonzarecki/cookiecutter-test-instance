@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "instance"
+name = "cookiecutter-test-instance"
 version = "0.0.0"
-description = "Instance"
+description = "Cookiecutter Test Instance"
 authors = ["Claudio Jolowicz <mail@claudiojolowicz.com>"]
 readme = "README.rst"
-homepage = "https://github.com/cjolowicz/instance"
-repository = "https://github.com/cjolowicz/instance"
-documentation = "https://instance.readthedocs.io"
+homepage = "https://github.com/cjolowicz/cookiecutter-test-instance"
+repository = "https://github.com/cjolowicz/cookiecutter-test-instance"
+documentation = "https://cookiecutter-test-instance.readthedocs.io"
 classifiers = [
     "Development Status :: 1 - Planning",
     "Programming Language :: Python :: 3.6",
@@ -16,19 +16,19 @@ classifiers = [
 ]
 
 [tool.poetry.urls]
-Changelog = "https://github.com/cjolowicz/instance/releases"
+Changelog = "https://github.com/cjolowicz/cookiecutter-test-instance/releases"
 
 
 [tool.coverage.run]
-source = ["instance", "common"]
+source = ["cookiecutter_test_instance", "common"]
 omit = [
-  "setup.py",
-  "*config*.py",
-  "*constants*.py",
-  "*/notebooks/*",
-  "*/notebooks/*",
-  "*/tests/*",
-  "*/main.py",
+   "setup.py",
+   "*config*.py",
+   "*constants*.py",
+   "*/notebooks/*",
+   "*/notebooks/*",
+   "*/tests/*",
+   "*/main.py",
   "*/__init__.py"]
 data_file = ".cache/.coverage"
 
@@ -98,7 +98,7 @@ no_implicit_reexport = true
 exclude = ["notebooks/", "**/tests/"]
 make_whitelist = true
 min_confidence = 100
-paths = ["instance", "common"]
+paths = ["cookiecutter_test_instance", "common"]
 sort_by_size = true
 verbose = true
 

@@ -90,14 +90,14 @@ repos:
     rev: v1.3.1
     hooks:
       - id: docformatter
-        exclude: ^notebooks.*$
+        exclude: ^.*(notebooks.*|__init__.py|test.*)$
         args: [-i, "--wrap-summaries=0", "--wrap-descriptions=0", --blank]
 
   - repo: https://github.com/pycqa/pydocstyle
     rev: 6.1.1
     hooks:
       - id: pydocstyle
-        exclude: ^.*(notebooks.*|__init__.py|test.*)$
+        exclude: ^.*(__init__.py|test.*)
 
   - repo: https://github.com/terrencepreilly/darglint
     rev: v1.8.0

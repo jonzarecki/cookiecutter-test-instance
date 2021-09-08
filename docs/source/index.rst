@@ -1,5 +1,5 @@
-Documentation for instance
---------------------------
+Documentation for cookiecutter_test_instance
+--------------------------------------------
 
 .. toctree::
    :hidden:
@@ -7,4 +7,4 @@ Documentation for instance
 
    usage
    reference
-   Changelog <https://github.com/cjolowicz/instance/releases>
+   Changelog <https://github.com/cjolowicz/cookiecutter-test-instance/releases>

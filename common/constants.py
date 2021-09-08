@@ -3,7 +3,7 @@ import sys
 from datetime import datetime
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
-PROJECT_NAME = "instance"
+PROJECT_NAME = "cookiecutter_test_instance"
 USER_ROOT_DIR = os.path.dirname(os.path.dirname(PROJECT_ROOT))
 
 # consistent for all projects

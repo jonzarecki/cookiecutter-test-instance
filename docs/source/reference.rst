@@ -6,16 +6,16 @@ Reference
     :backlinks: none
 
 
-instance
---------
-instance package.
+cookiecutter_test_instance
+--------------------------
+cookiecutter_test_instance package.
 
 .. autosummary::
    :toctree: _autosummary
    :template: custom-module-template.rst
    :recursive:
 
-   instance
+   cookiecutter_test_instance
 
 
 common
