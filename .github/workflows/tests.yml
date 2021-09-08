@@ -1,0 +1,39 @@
+name: Run Tests (and nox session) and upload results
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  run_test_and_upload_results:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag cookiecutter_test_instance:ci
+
+      - name: Run Nox on all sessions
+        run: |
+          docker run -v `pwd`:/code  cookiecutter_test_instance:ci nox --force-color
+
+      - name: Upload coverage data
+        uses: "actions/upload-artifact@v2.2.4"
+        with:
+          name: coverage-data
+          path: ".cache/.coverage.*"
+
+      - name: Upload documentation
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: docs
+          path: docs/_build
+
+      - name: Create coverage report
+        run: |
+          docker run -v `pwd`:/code  cookiecutter_test_instance:ci nox --force-color --session=coverage -- xml
+
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v2.0.2
