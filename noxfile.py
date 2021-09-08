@@ -54,7 +54,7 @@ def xdoctest(sess: Session) -> None:
 def docs_build(sess: Session) -> None:
     """Build the documentation."""
     args = sess.posargs or ["docs/source", "docs/_build"]
-    sess.install("sphinx", "sphinx-click", "sphinx-rtd-theme")
+    sess.install("-r", "docs/source/requirements.txt")
 
     build_dir = Path("docs", "_build")
     if build_dir.exists():
@@ -67,7 +67,7 @@ def docs_build(sess: Session) -> None:
 def docs(sess: Session) -> None:
     """Build and serve the documentation with live reloading on file changes."""
     args = sess.posargs or ["--open-browser", "docs/source", "docs/_build"]
-    sess.install("sphinx", "sphinx-autobuild", "sphinx-click", "sphinx-rtd-theme")
+    sess.install("-r", "docs/source/requirements.txt")
 
     build_dir = Path("docs", "_build")
     if build_dir.exists():
