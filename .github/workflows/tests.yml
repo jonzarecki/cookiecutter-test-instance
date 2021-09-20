@@ -15,7 +15,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          DOCKER_IMAGE=ghcr.io/jonzarecki/cookiecutter-test-instance
+          DOCKER_IMAGE=ghcr.io/cjolowicz/cookiecutter-test-instance
           VERSION=edge
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/v}
@@ -54,10 +54,11 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Run Nox sessions
-        # Add env variables: -e VAR=$\{\{ secrets.VAR \}\} || Access using os.environ["VAR"], remove escapes
+        # Add env variables: -e VAR=${{ secrets.VAR }} || Access using os.environ["VAR"], remove escapes
         run: |
           docker run --rm \
-          -v `pwd`:/code cookiecutter_test_instance:ci nox --force-color
+          -v `pwd`:/code \
+          cookiecutter-test-instance:ci nox --force-color
 
       - name: Upload coverage data
         uses: "actions/upload-artifact@v2.2.4"
@@ -73,7 +74,7 @@ jobs:
 
       - name: Create coverage report
         run: |
-          docker run -v `pwd`:/code  cookiecutter_test_instance:ci nox --force-color --session=coverage -- xml
+          docker run -v `pwd`:/code  cookiecutter-test-instance:ci nox --force-color --session=coverage -- xml
 
       - name: Upload coverage report
         uses: codecov/codecov-action@v2.0.2
