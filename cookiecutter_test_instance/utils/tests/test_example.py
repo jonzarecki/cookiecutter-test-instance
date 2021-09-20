@@ -10,4 +10,4 @@ def setup1() -> int:
 
 def test_something(setup1: int) -> None:
     print(setup1)
-    assert setup1 == 3, "always right"
+    assert setup1 == 3, "Test is always right"
