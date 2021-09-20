@@ -15,7 +15,7 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag cookiecutter_test_instance:ci
 
-      - name: Run Nox on all sessions
+      - name: Run Nox sessions
         run: |
           docker run -v `pwd`:/code  cookiecutter_test_instance:ci nox --force-color
 
