@@ -1,4 +1,3 @@
-# pylint: disable=redefined-outer-name
 import pytest
 
 from cookiecutter_test_instance.utils.a_util import util_function

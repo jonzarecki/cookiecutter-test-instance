@@ -19,15 +19,11 @@ repos:
     rev: "v2.7.4"
     hooks:
       - id: pylint
-        exclude: ^notebooks.*$
+        exclude: ^(notebooks.*|.*test.*)$
         types: [python]
-        args:
-          [
-            "-rn",
-            "-sn",
-            "--rcfile=.pylintrc",
-            "--load-plugins=pylint.extensions.docparams",
-          ]
+        additional_dependencies: ["pylint-pytest==1.0.3"] #  fix false positives with pytest
+        entry: python -m pylint
+        args: ["-rn", "-sn", "--rcfile=.pylintrc"]
 
   - repo: https://github.com/timothycrosley/isort
     rev: 5.8.0
@@ -44,6 +40,7 @@ repos:
         args: ["--line-length=120"]
 
   - repo: https://github.com/pycqa/flake8
+    # disable using: `# noqa`
     rev: 3.9.2
     hooks:
       - id: flake8
@@ -59,24 +56,20 @@ repos:
             flake8-builtins, # Check for python builtins being used as variables or parameters.
             flake8-comprehensions, # It helps you write a better list/set/dict comprehensions.
             flake8-deprecated, # Warns about deprecated method calls.
-            flake8-eradicate, # Flake8 plugin to find commented out code
+            flake8-eradicate, # Flake8 plugin to find commented out code, disable E800 using `# noqa: E800`
             # flake8-pytest, # pytest assert checker plugin for flake8
             flake8-tabs, # Tab (or Spaces) indentation style checker for flake8
-            pep8-naming, # Check PEP-8 naming conventions, plugin for flake8
+            # pep8-naming, # Check PEP-8 naming conventions, plugin for flake8  # covered by pylint
           ]
 
   # considered wily, radon & xenon for code complexity, satisfied with flake8 complexity scores
 
   - repo: https://github.com/jendrikseipp/vulture
+    # disable using: exclude in vulture's pyproject.toml
     rev: "v2.3"
     hooks:
       - id: vulture
-        name: vulture
-        language: python
-        entry: vulture
-        exclude: ^notebooks.*$
-        description: Find unused Python code.
-        types: [python]
+        pass_filenames: true
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: "v0.901"
@@ -85,6 +78,8 @@ repos:
         exclude: ^notebooks.*$
         additional_dependencies:
           - attrs
+          - types-requests
+          - types-toml
 
   - repo: https://github.com/myint/docformatter
     rev: v1.3.1
@@ -166,6 +161,7 @@ repos:
           [
             "--max-line-length=120",
             "--ignore-path=docs/source/_**",
+            "--ignore=D002,D004",
             "docs/source",
           ]
 
@@ -186,7 +182,7 @@ repos:
     rev: "v2.3.2"
     hooks:
       - id: prettier
-        exclude: .cruft.json
+        exclude: .(cruft|cookiecutter).json
 
   - repo: https://github.com/jonzarecki/cruft
     rev: 2.9.0-alpha.3

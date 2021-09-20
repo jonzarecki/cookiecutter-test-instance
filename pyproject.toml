@@ -25,16 +25,11 @@ omit = [
    "setup.py",
    "*config*.py",
    "*constants*.py",
-   "*/notebooks/*",
-   "*/notebooks/*",
+   "**/notebooks/*",
    "*/tests/*",
    "*/main.py",
-  "*/__init__.py"]
+  "**/__init__.py"]
 data_file = ".cache/.coverage"
-
-# need to `pip install pytest pytest-cov converage[toml] pytest-xdist
-# from root dir:
-# pytest -n 3 --rootdir=. . --cov=.  --cov-fail-under=80
 
 
 [tool.coverage.report]
@@ -100,7 +95,7 @@ make_whitelist = true
 min_confidence = 100
 paths = ["cookiecutter_test_instance", "common"]
 sort_by_size = true
-verbose = true
+verbose = false  # verbose doesn't work on utf-8
 
 
 [build-system]

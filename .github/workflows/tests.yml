@@ -11,13 +11,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag cookiecutter_test_instance:ci
 
       - name: Run Nox sessions
+        # Add env variables: -e VAR=$\{\{ secrets.VAR \}\} || Access using os.environ["VAR"], remove escapes
         run: |
-          docker run -v `pwd`:/code  cookiecutter_test_instance:ci nox --force-color
+          docker run \
+          -v `pwd`:/code  cookiecutter_test_instance:ci nox --force-color
 
       - name: Upload coverage data
         uses: "actions/upload-artifact@v2.2.4"

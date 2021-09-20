@@ -11,5 +11,6 @@
 /src/*.egg-info/
 __pycache__/
 /.idea/
+.pytest_cache/
 /.cache/
 .env
