@@ -6,5 +6,5 @@ Documentation for cookiecutter_test_instance
    :maxdepth: 1
 
    usage
-   reference
-   Changelog <https://github.com/cjolowicz/cookiecutter-test-instance/releases>
+   reference_material/index
+   code_reference
