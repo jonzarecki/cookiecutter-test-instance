@@ -19,6 +19,7 @@ extensions = [
     "sphinx.ext.coverage",
     "sphinx.ext.viewcode",
     "myst_parser",
+    "notfound.extension",  # Generates 404 page
 ]
 autodoc_typehints = "description"
 autodoc_default_flags = ["members", "special-members", "private-members", "undoc-members"]
