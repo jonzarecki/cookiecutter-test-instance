@@ -2,6 +2,8 @@ import os
 import sys
 from datetime import datetime
 
+import common.logger_config  # noqa: used to initialize the logger
+
 PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
 PROJECT_NAME = "cookiecutter_test_instance"
 USER_ROOT_DIR = os.path.dirname(os.path.dirname(PROJECT_ROOT))

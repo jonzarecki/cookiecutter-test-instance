@@ -33,7 +33,8 @@ dependencies:
 #  - bokeh>2
 #  - holoviews
 
-#  - pip:
+- pip:
+  - loguru
 #      - wandb
 #      - panel
 #      - streamlit

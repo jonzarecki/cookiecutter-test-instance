@@ -177,11 +177,20 @@ repos:
       - id: debug-statements
       - id: requirements-txt-fixer
 
+  - repo: local
+    hooks:
+      - id: python-no-logging
+        name: use `from loguru import logger`
+        description: "A quick check to ensure we're using loguru"
+        entry: ^import logging((?!noqa).)*$
+        language: pygrep
+        types: [python]
+
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: "v2.3.2"
     hooks:
       - id: prettier
-        exclude: .(cruft|cookiecutter).json
+        exclude: .(cruft|cookiecutter).json|environment.yml
 
   - repo: https://github.com/jonzarecki/cruft
     rev: 2.9.0-alpha.3
