@@ -191,7 +191,7 @@ repos:
     rev: "v2.3.2"
     hooks:
       - id: prettier
-        exclude: .(cruft|cookiecutter).json|environment.yml
+        exclude: ((cruft|cookiecutter)\.json)|(environment\.yml)
 
   - repo: https://github.com/jonzarecki/cruft
     rev: 2.9.0-alpha.3
