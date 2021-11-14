@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
       nano vim \
       openssh-server
 
-COPY environment.yml /tmp/environment.yml
+COPY common/conf_files/environment.yml /tmp/environment.yml
 ENV PATH /opt/conda/bin:$PATH
 ENV CONDA_AUTO_UPDATE_CONDA=false
 
@@ -29,7 +29,7 @@ ENV PATH $CONDA_PREFIX/bin:$PATH
 #RUN $CONDA_PREFIX/bin/jt -t onedork -fs 95 -altp -tfs 11 -nfs 115 -lineh 140 -cellw 1200 -T
 
 # Install requirements for noxfile.py
-COPY .github/workflows/constraints.txt /tmp
+COPY ../../.github/workflows/constraints.txt /tmp
 RUN $CONDA_PREFIX/bin/pip install --constraint=/tmp/constraints.txt nox toml
 
 # copy source code

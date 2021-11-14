@@ -7,6 +7,7 @@ repos:
     hooks:
       - id: gitlint
         stages: [commit-msg]
+        args: ["--config=common/conf_files/.gitlint", --staged, --msg-filename]
 
   - repo: https://github.com/codespell-project/codespell
     rev: v2.1.0
@@ -22,7 +23,7 @@ repos:
         exclude: ^(notebooks.*|.*test.*)$
         types: [python]
         entry: python -m pylint
-        args: ["-rn", "-sn", "--rcfile=.pylintrc"]
+        args: ["-rn", "-sn", "--rcfile=common/conf_files/.pylintrc"]
 
   - repo: https://github.com/timothycrosley/isort
     rev: 5.8.0

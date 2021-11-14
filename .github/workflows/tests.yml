@@ -49,7 +49,7 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: .
-          file: ./Dockerfile
+          file: ./common/conf_files/Dockerfile
           tags: cookiecutter_test_instance:ci
           load: true
           cache-from: type=gha

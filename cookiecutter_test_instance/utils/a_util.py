@@ -1,3 +1,21 @@
 def util_function() -> int:
-    """Just a Function."""
+    print("asda")
+    print("asda")
+    print("asda")
+    print("asda")
+    print("asda")
+    print("asda")
+    print("asda")
+    print("asda")
+    print("asda")
+    print("asda")
+    print("asda")
+    print("asda")
+    print("asda")
+    print("asda")
+    print("asda")
+    print("asda")
+    print("asda")
+    print("asda")
+
     return 3
