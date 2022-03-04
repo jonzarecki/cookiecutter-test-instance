@@ -63,13 +63,13 @@ jobs:
           cookiecutter_test_instance:ci nox --force-color
 
       - name: Upload coverage data
-        uses: "actions/upload-artifact@v2.2.4"
+        uses: "actions/upload-artifact@v3"
         with:
           name: coverage-data
           path: ".cache/.coverage.*"
 
       - name: Upload documentation
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v3
         with:
           name: docs
           path: docs/_build
