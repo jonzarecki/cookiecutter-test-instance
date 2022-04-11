@@ -79,4 +79,4 @@ jobs:
           docker run -v `pwd`:/code  cookiecutter_test_instance:ci nox --force-color --session=coverage -- xml
 
       - name: Upload coverage report
-        uses: codecov/codecov-action@v2.1.0
+        uses: codecov/codecov-action@v3.0.0
