@@ -9,9 +9,9 @@ import toml
 from nox import Session
 
 package = "cookiecutter_test_instance"
-python_versions = ["3.7"]
+python_versions = ["3.8"]
 nox.needs_version = ">= 2021.6.6"
-nox.options.sessions = ("tests", "xdoctest", "docs-build")  # , "pre-commit"
+nox.options.sessions = ("tests", "xdoctest", "docs-build")
 pyproject_data = toml.loads(Path("pyproject.toml").read_text())
 submodule_paths = []
 if os.path.exists(".gitmodules"):
@@ -19,14 +19,6 @@ if os.path.exists(".gitmodules"):
         lines = [s.strip() for s in f.readlines()]
     if "path = common" in lines:  # common is not a submodule of a different repo
         submodule_paths.append("common")
-
-
-@nox.session(name="pre-commit", python=python_versions)
-def pre_commit(sess: Session) -> None:
-    """Run pre-commit on all files."""
-    sess.install("pre-commit")
-    sess.run(*"pre-commit install --install-hooks -t pre-commit -t commit-msg -t post-commit -t pre-push".split(" "))
-    sess.run(*"pre-commit run --all-files".split(" "))
 
 
 @nox.session(python=False)
