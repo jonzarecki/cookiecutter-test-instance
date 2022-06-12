@@ -49,6 +49,12 @@ If you encounter any problems,
 please `file an issue`_ along with a detailed description.
 
 
+Configurations
+--------------
+
+
+Most configurations are in the root folder, others are in `common/conf_files`.
+
 Credits
 -------
 
